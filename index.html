@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniVoice+Video Group Chat Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="login">
+            <h2>Регистрация / Вход</h2>
+            <input type="text" id="username" placeholder="Имя пользователя">
+            <input type="password" id="password" placeholder="Пароль">
+            <button class="primary-btn" onclick="register()">Зарегистрироваться</button>
+            <button class="secondary-btn" onclick="login()">Войти</button>
+            <p id="loginMessage"></p>
+        </div>
+        <div id="chatInterface">
+            <h2>Привет, <span id="userLabel"></span>!</h2>
+            <div id="usersList"></div>
+            <div id="videosContainer">
+                <!-- Local video will be added here -->
+            </div>
+            <div id="chatArea"></div>
+            <div id="messageInputContainer">
+                <input type="text" id="messageInput" placeholder="Введите сообщение..." onkeypress="handleKeyPress(event)">
+                <button class="primary-btn" id="sendMessage" onclick="sendMessage()">Отправить</button>
+            </div>
+            <div class="controls">
+                <button class="control-btn" id="micBtn" onclick="toggleMic()">🔊 Микрофон</button>
+                <button class="control-btn" id="camBtn" onclick="toggleCam()">📹 Камера</button>
+                <button class="control-btn" onclick="shareScreen()">🖥️ Экран</button>
+                <button class="secondary-btn" onclick="endGroupCall()">🛑 Завершить звонок</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.2/dist/peerjs.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
